@@ -4,13 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Neptune Burners adalah komunitas motor penuh semangat, sejak 2025." />
-  <meta property="og:title" content="Neptune Burners" />
-  <meta property="og:description" content="Bergabunglah dengan komunitas motor Neptune Burners." />
-  <meta property="og:image" content="https://sdmntpreastus.oaiusercontent.com/files/00000000-71c0-61f9-9593-b8504333c7b4/raw?se=2025-06-05T15%3A06%3A12Z&sp=r&sv=2024-08-04&sr=b&scid=acd36bc6-d6ca-5d5b-998b-d253b9385f23&skoid=02b7f7b5-29f8-416a-aeb6-99464748559d&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-06-05T09%3A49%3A30Z&ske=2025-06-06T09%3A49%3A30Z&sks=b&skv=2024-08-04&sig=yXDT3Bgs%2B41N389PjCju7t6h1a6nWyMm/JUUTfa3WeM%3D" />
   <title>Neptune Burners</title>
-  <link rel="icon" href="https://sdmntpreastus.oaiusercontent.com/files/00000000-71c0-61f9-9593-b8504333c7b4/raw?se=2025-06-05T15%3A06%3A12Z&sp=r&sv=2024-08-04&sr=b&scid=acd36bc6-d6ca-5d5b-998b-d253b9385f23&skoid=02b7f7b5-29f8-416a-aeb6-99464748559d&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-06-05T09%3A49%3A30Z&ske=2025-06-06T09%3A49%3A30Z&sks=b&skv=2024-08-04&sig=yXDT3Bgs%2B41N389PjCju7t6h1a6nWyMm/JUUTfa3WeM%3D" type="image/png" />
+  <link rel="icon" href="icon.png" type="image/png" />
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Roboto&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOM6g5n0z5e5e5e5e5e5e5e5e5e5e5e5e5e5e5" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
     * {
       box-sizing: border-box;
@@ -25,6 +22,12 @@
       overflow-x: hidden;
     }
 
+    .container {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
     header {
       background: linear-gradient(145deg, #1e3a8a, #1a1a2e);
       color: white;
@@ -32,10 +35,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
+      position: relative;
       z-index: 10;
       box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
     }
@@ -74,25 +74,12 @@
       color: #38bdf8;
     }
 
-    .close-navbar {
-      cursor: pointer;
-      background-color: transparent;
-      color: #00e5ff;
-      border: none;
-      font-size: 1.5em;
-      margin-left: 20px;
-      transition: color 0.3s;
-    }
-
-    .close-navbar:hover {
-      color: #38bdf8;
-    }
-
     main {
+      flex: 1;
       max-width: 1200px;
       margin: auto;
       padding: 20px;
-      padding-top: 80px; /* Menambahkan padding atas untuk menghindari konten tertutup navbar */
+      padding-top: 20px; /* Mengurangi padding atas untuk menghindari konten tertutup navbar */
     }
 
     .page {
@@ -117,10 +104,6 @@
       margin-bottom: 20px;
       box-shadow: 0 5px 25px rgba(0,0,0,0.5);
       transition: transform 0.5s;
-    }
-
-    .hero-image:hover {
-      transform: scale(1.02);
     }
 
     section {
@@ -168,10 +151,6 @@
       transition: 0.3s;
     }
 
-    .discord a:hover {
-      background: #0ea5e9;
-    }
-
     footer {
       text-align: center;
       padding: 20px;
@@ -193,88 +172,80 @@
       nav ul li {
         margin: 5px 0;
       }
-
-      .close-navbar {
-        margin: 10px 0;
-      }
     }
   </style>
 </head>
 <body>
-  <header id="navbar">
-    <img src="https://sdmntpreastus.oaiusercontent.com/files/00000000-71c0-61f9-9593-b8504333c7b4/raw?se=2025-06-05T15%3A06%3A12Z&sp=r&sv=2024-08-04&sr=b&scid=acd36bc6-d6ca-5d5b-998b-d253b9385f23&skoid=02b7f7b5-29f8-416a-aeb6-99464748559d&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-06-05T09%3A49%3A30Z&ske=2025-06-06T09%3A49%3A30Z&sks=b&skv=2024-08-04&sig=yXDT3Bgs%2B41N389PjCju7t6h1a6nWyMm/JUUTfa3WeM%3D" alt="Logo Neptune Burners" class="logo">
-    <h1>Neptune Burners</h1>
-    <button class="close-navbar" onclick="toggleNavbar()"><i class="fas fa-times"></i></button>
-    <nav>
-      <ul>
-        <li><a href="#" onclick="showPage('home')">Beranda</a></li>
-        <li><a href="#" onclick="showPage('about')">Tentang Kami</a></li>
-        <li><a href="#" onclick="showPage('activities')">Kegiatan</a></li>
-        <li><a href="#" onclick="showPage('discord')">Discord</a></li>
-        <li><a href="#" onclick="showPage('contact')">Kontak</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <main id="content">
-    <div id="home" class="page active">
-      <img src="https://i.pinimg.com/originals/33/bc/9b/33bc9bffa5badcb21fdfbc0cd4a3e7a5.jpg" alt="Motor Sport" class="hero-image">
-      <section>
-        <h2>Selamat Datang di Neptune Burners</h2>
-        <p>Komunitas motor yang berdiri sejak Mei 2025. Bergabunglah dengan kami untuk berbagi pengalaman dan informasi seru seputar dunia otomotif roda dua!</p>
-      </section>
-    </div>
-
-    <div id="about" class="page">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRu0cm8Wlej5vMvEaxiiBT1Y-hEOhrTJ5nk0A&s" alt="Tentang Kami" class="hero-image">
-      <section>
-        <h2>Tentang Kami</h2>
-        <p>Neptune Burners adalah komunitas motor yang berdiri sejak Mei 2025. Kami hadir untuk menyatukan para pecinta motor dari berbagai kalangan. Fokus kami adalah pada kebersamaan, perjalanan, dan edukasi berkendara yang aman.</p>
-      </section>
-    </div>
-
-    <div id="activities" class="page">
-      <img src="https://static.toiimg.com/thumb/msid-106732264,width-1280,height-720,resizemode-4/106732264.jpg" alt="Kegiatan" class="hero-image">
-      <section>
-        <h2>Kegiatan Kami</h2>
+  <div class="container">
+    <header id="navbar">
+      <img src="https://sdmntpreastus.oaiusercontent.com/files/00000000-71c0-61f9-9593-b8504333c7b4/raw?se=2025-06-05T15%3A06%3A12Z&sp=r&sv=2024-08-04&sr=b&scid=acd36bc6-d6ca-5d5b-998b-d253b9385f23&skoid=02b7f7b5-29f8-416a-aeb6-99464748559d&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-06-05T09%3A49%3A30Z&ske=2025-06-06T09%3A49%3A30Z&sks=b&skv=2024-08-04&sig=yXDT3Bgs%2B41N389PjCju7t6h1a6nWyMm/JUUTfa3WeM%3D" alt="Logo Neptune Burners" class="logo">
+      <h1>Neptune Burners</h1>
+      <nav>
         <ul>
-          <li><img src="https://img.icons8.com/ios-filled/50/00adb5/motorcycle.png">Sunmori</li>
-          <li><img src="https://img.icons8.com/ios-filled/50/00adb5/meeting-room.png">Kopdar</li>
-          <li><img src="https://img.icons8.com/ios-filled/50/00adb5/cafe.png">Nongkrong Nareng</li>
-          <li><img src="https://img.icons8.com/ios-filled/50/00adb5/discord-logo.png">Sharing di Discord</li>
+          <li><a href="#" onclick="showPage('home')">Beranda</a></li>
+          <li><a href="#" onclick="showPage('about')">Tentang Kami</a></li>
+          <li><a href="#" onclick="showPage('activities')">Kegiatan</a></li>
+          <li><a href="#" onclick="showPage('discord')">Discord</a></li>
+          <li><a href="#" onclick="showPage('contact')">Kontak</a></li>
         </ul>
-      </section>
-    </div>
+      </nav>
+    </header>
 
-    <div id="discord" class="page">
-      <section>
-        <h2>Bergabung di Discord</h2>
-        <p>Ikuti kami di server Discord untuk info terkini, diskusi motor, dan komunitas aktif setiap hari:</p>
-        <div class="discord">
-          <a href="https://discord.gg/PJAn2nYNVg" target="_blank">Gabung Sekarang</a>
-        </div>
-      </section>
-    </div>
+    <main id="content">
+      <div id="home" class="page active">
+        <img src="https://i.pinimg.com/originals/33/bc/9b/33bc9bffa5badcb21fdfbc0cd4a3e7a5.jpg" alt="Motor Sport" class="hero-image">
+        <section>
+          <h2>Selamat Datang di Neptune Burners</h2>
+          <p>Komunitas motor yang berdiri sejak Mei 2025. Bergabunglah dengan kami untuk berbagi pengalaman dan informasi seru seputar dunia otomotif roda dua!</p>
+        </section>
+      </div>
 
-    <div id="contact" class="page">
-      <img src="https://sdmntpreastus.oaiusercontent.com/files/00000000-71c0-61f9-9593-b8504333c7b4/raw?se=2025-06-05T15%3A06%3A12Z&sp=r&sv=2024-08-04&sr=b&scid=acd36bc6-d6ca-5d5b-998b-d253b9385f23&skoid=02b7f7b5-29f8-416a-aeb6-99464748559d&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-06-05T09%3A49%3A30Z&ske=2025-06-06T09%3A49%3A30Z&sks=b&skv=2024-08-04&sig=yXDT3Bgs%2B41N389PjCju7t6h1a6nWyMm/JUUTfa3WeM%3D" alt="Kontak" class="hero-image">
-      <section>
-        <h2>Kontak Kami</h2>
-        <p>Untuk pertanyaan atau kerja sama, silakan kirim email ke: <a href="mailto:info@neptuneburners.com">info@neptuneburners.com</a></p>
-      </section>
-    </div>
-  </main>
+      <div id="about" class="page">
+        <img src="https://i.pinimg.com/736x/f4/06/33/f40633a12e53782bbadfdb664319d081.jpg" alt="Tentang Kami" class="hero-image">
+        <section>
+          <h2>Tentang Kami</h2>
+          <p>Neptune Burners adalah komunitas motor yang berdiri sejak Mei 2025. Kami hadir untuk menyatukan para pecinta motor dari berbagai kalangan. Fokus kami adalah pada kebersamaan, perjalanan, dan edukasi berkendara yang aman.</p>
+        </section>
+      </div>
 
-  <footer>
-    <p>&copy; 2025 Neptune Burners. Semua hak dilindungi. | Dibuat dengan semangat dan semir rantai motor 🛠️</p>
-  </footer>
+      <div id="activities" class="page">
+        <img src="https://png.pngtree.com/background/20230426/original/pngtree-group-of-people-on-motorcycles-are-riding-down-a-street-picture-image_2488618.jpg" alt="Kegiatan" class="hero-image">
+        <section>
+          <h2>Kegiatan Kami</h2>
+          <ul>
+            <li><img src="https://img.icons8.com/ios-filled/50/00adb5/motorcycle.png">Sunmori</li>
+            <li><img src="https://img.icons8.com/ios-filled/50/00adb5/meeting-room.png">Kopdar</li>
+            <li><img src="https://img.icons8.com/ios-filled/50/00adb5/cafe.png">Nongkrong Nareng</li>
+            <li><img src="https://img.icons8.com/ios-filled/50/00adb5/discord-logo.png">Sharing di Discord</li>
+          </ul>
+        </section>
+      </div>
+
+      <div id="discord" class="page">
+        <section>
+          <h2>Bergabung di Discord</h2>
+          <p>Ikuti kami di server Discord untuk info terkini, diskusi motor, dan komunitas aktif setiap hari:</p>
+          <div class="discord">
+            <a href="https://discord.gg/PJAn2nYNVg" target="_blank">Gabung Sekarang</a>
+          </div>
+        </section>
+      </div>
+
+      <div id="contact" class="page">
+        <img src="https://sdmntpreastus.oaiusercontent.com/files/00000000-71c0-61f9-9593-b8504333c7b4/raw?se=2025-06-05T15%3A06%3A12Z&sp=r&sv=2024-08-04&sr=b&scid=acd36bc6-d6ca-5d5b-998b-d253b9385f23&skoid=02b7f7b5-29f8-416a-aeb6-99464748559d&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-06-05T09%3A49%3A30Z&ske=2025-06-06T09%3A49%3A30Z&sks=b&skv=2024-08-04&sig=yXDT3Bgs%2B41N389PjCju7t6h1a6nWyMm/JUUTfa3WeM%3D" alt="Kontak" class="hero-image">
+        <section>
+          <h2>Kontak Kami</h2>
+          <p>Untuk pertanyaan atau kerja sama, silakan kirim email ke: <a href="mailto:info@neptuneburners.com">info@neptuneburners.com</a></p>
+        </section>
+      </div>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 Neptune Burners. Semua hak dilindungi. | Dibuat dengan semangat dan semir rantai motor 🛠️</p>
+    </footer>
+  </div>
 
   <script>
-    function toggleNavbar() {
-      const navbar = document.getElementById('navbar');
-      navbar.classList.toggle('hidden');
-    }
-
     function showPage(pageId) {
       const pages = document.querySelectorAll('.page');
       pages.forEach(p => {
